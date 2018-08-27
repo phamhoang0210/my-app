@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Training</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'backend', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'backend', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+  </head>
+
+  <body class="hold-transition skin-blue sidebar-mini">
+    <div class="wrapper">
+      <header class="main-header">
+        <!-- Logo -->
+        <a href="/dashboard" class="logo">
+          <!-- mini logo for sidebar mini 50x50 pixels -->
+          <span class="logo-mini"><b>RAILS</b></span>
+          <!-- logo for regular state and mobile devices -->
+          <span class="logo-lg">RAILS</span>
+        </a>
+        <!-- Header Navbar: style can be found in header.less -->
+        <nav class="navbar navbar-static-top">
+          <!-- Sidebar toggle button-->
+          <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+            <span class="sr-only">Toggle navigation</span>
+          </a>
+
+          <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+               <!--Messages: style can be found in dropdown.less-->
+              <!-- User Account: style can be found in dropdown.less -->
+             <li class="dropdown user user-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+              <span class="hidden-xs">
+                <%= render "users/showadmin" %>
+              </span>
+            </a>
+            <ul class="dropdown-menu">
+              <!-- User image -->
+              <li class="user-header">
+                   <%= image_tag "img/avatar5.png", class: "img-circle", alt: "User Image"  %>
+                <p>
+                  Admin Managers
+                  <small><%= Date.current %></small>
+                </p>
+              </li>
+              <!-- Menu Body -->
+              <li class="user-body">
+                <div class="row">
+                  <div class="col-xs-4 text-center">
+                    <a href="#">Followers</a>
+                  </div>
+                  <div class="col-xs-4 text-center">
+                    <a href="#">Sales</a>
+                  </div>
+                  <div class="col-xs-4 text-center">
+                    <a href="#">Friends</a>
+                  </div>
+                </div>
+                <!-- /.row -->
+              </li>
+              <!-- Menu Footer-->
+              <li class="user-footer">
+                <div class="pull-left">
+                  <button class="btn btn-default btn-flat"><%= link_to "Profile", logout_path %></a>
+                </div>
+                <div class="pull-right">
+                  <button class="btn btn-default btn-flat"><%= link_to "Logout", logout_path, method: :delete%></button>
+                </div>
+              </li>
+            </ul>
+          </li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+      <!-- Left side column. contains the logo and sidebar -->
+      <aside class="main-sidebar">
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+          <!-- Sidebar user panel -->
+          <div class="user-panel">
+            <div class="pull-left image">
+
+            </div>
+            <div class="pull-left info">
+
+              <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+            </div>
+          </div>
+          <!--&lt;!&ndash; search form &ndash;&gt;-->
+          <!--<form action="#" method="get" class="sidebar-form">-->
+            <!--<div class="input-group">-->
+              <!--<input type="text" name="q" class="form-control" placeholder="Search...">-->
+              <!--<span class="input-group-btn">-->
+                  <!--<button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>-->
+                  <!--</button>-->
+                <!--</span>-->
+            <!--</div>-->
+          <!--</form>-->
+          <!-- /.search form -->
+          <!-- sidebar menu: : style can be found in sidebar.less -->
+          <ul class="sidebar-menu" data-widget="tree">
+            <li class="header">MAIN NAVIGATION</li>
+
+            <li id="dashboard" class="">
+              <a href="/dashboard">
+                <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+                <span class="pull-right-container">
+                <!--<i class="fa fa-angle-left pull-right"></i>-->
+              </span>
+              </a>
+              <!--<ul class="treeview-menu">
+                <li class="active"><a href="index.html"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
+                <li><a href="index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
+              </ul>-->
+            </li>
+
+            <li id="order" class=""><a href="/order/list"><i class="fa fa-file-text-o" aria-hidden="true"></i> <span>Order</span></a></li>
+            <li id="product" class=""><a href="/product/list"><i class="fa fa-television" aria-hidden="true"></i> <span>Product</span></a></li>
+            <!--<li class="header">LABELS</li>-->
+            <li class="treeview">
+                <a href="#">
+                  <i class="fa fa-user-o" aria-hidden="true"></i><span>Account</span>
+                  <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                  </span>
+                </a>
+                <ul class="treeview-menu" style="display: none;">
+                  <li><a href="/users"><i class="fa fa-circle-o"></i> Show Acount</a></li>
+                  <li><a href="#"><i class="fa fa-circle-o"></i>Roles</a></li>
+<!--                   <li><a href="pages/forms/editors.html"><i class="fa fa-circle-o"></i> Editors</a></li> -->
+                </ul>
+            </li>
+            </ul>
+        </section>
+        <!-- /.sidebar -->
+      </aside>
+
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper" style="min-height: 577px;">
+
+        <%= yield %>
+
+      </div>
+      <!-- /.content-wrapper -->
+      <footer class="main-footer">
+        <div class="pull-right hidden-xs">
+          <!--<b>Version</b> 2.4.0-->
+        </div>
+        <strong>Copyright &copy; 2018 <a href="#">Hoangpv</a>.</strong> All rights
+        reserved.
+      </footer>
+
+      <!-- Add the sidebar's background. This div must be placed
+           immediately after the control sidebar -->
+      <div class="control-sidebar-bg"></div>
+    </div>
+    <!-- ./wrapper -->
+  <script type="text/javascript">
+    $(document).ready(function() {
+    $('#example1').DataTable();
+  });
+  </script>
+  </body>
+</html>
