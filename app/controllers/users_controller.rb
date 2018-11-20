@@ -19,6 +19,18 @@ class UsersController < ApplicationController
      end
   end
   def edit
+    @user = User.find(params[:id])
+    render layout: "backend"
+  end
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+      flash[:success]="Update User Success"
+      redirect_to users_path
+    else
+      flash[:danger]="Update Fails!!"
+      render :new
+    end
 
   end
   def show
